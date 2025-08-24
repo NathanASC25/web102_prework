@@ -30,7 +30,6 @@ function addGamesToPage(games) {
 
     // loop over each item in the data
 
-
         // create a new div element, which will become the game card
 
 
@@ -45,11 +44,29 @@ function addGamesToPage(games) {
 
         // append the game to the games-container
 
+    for (let i = 0; i < games.length; i++){
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("game-card");
+        newDiv.innerHTML = `
+            <div>
+                <img class="game-img" src="${games[i].img}"> 
+                <br><br>
+                ${games[i].name}
+                <br><br>
+                ${games[i].description}
+                <br><br>
+                Pledged: ${games[i].pledged}
+                <br><br>
+                Goal: ${games[i].goal}
+            </div>
+        `;
+        gamesContainer.appendChild(newDiv);
+    }    
 }
 
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
-
+addGamesToPage(GAMES_JSON);
 
 /*************************************************************************************
  * Challenge 4: Create the summary statistics at the top of the page displaying the
@@ -61,20 +78,24 @@ function addGamesToPage(games) {
 const contributionsCard = document.getElementById("num-contributions");
 
 // use reduce() to count the number of total contributions by summing the backers
-
-
+const startVal = 0;
+let reducer = (accumulator, GAMES_JSON) => accumulator + GAMES_JSON.backers;
+let result = GAMES_JSON.reduce(reducer, startVal);
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
-
+contributionsCard.innerHTML = result.toLocaleString();
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 
 // set inner HTML using template literal
-
+reducer = (accumulator, GAMES_JSON) => accumulator + GAMES_JSON.pledged;
+result = GAMES_JSON.reduce(reducer, startVal);
+raisedCard.innerHTML = result.toLocaleString();
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
-
+result = GAMES_JSON.length;
+gamesCard.innerHTML = result.toLocaleString();
 
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
@@ -87,10 +108,12 @@ function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have not yet met their goal
-
+    const needsGoal = GAMES_JSON.filter((GAMES_JSON) => {
+        return GAMES_JSON.pledged < GAMES_JSON.goal;
+    });
 
     // use the function we previously created to add the unfunded games to the DOM
-
+    addGamesToPage(needsGoal);
 }
 
 // show only games that are fully funded
@@ -98,10 +121,12 @@ function filterFundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have met or exceeded their goal
-
+    const meetsGoal = GAMES_JSON.filter((GAMES_JSON) => {
+        return GAMES_JSON.pledged >= GAMES_JSON.goal;
+    })
 
     // use the function we previously created to add unfunded games to the DOM
-
+    addGamesToPage(meetsGoal);
 }
 
 // show all games
@@ -109,7 +134,7 @@ function showAllGames() {
     deleteChildElements(gamesContainer);
 
     // add all games from the JSON data to the DOM
-
+    addGamesToPage(GAMES_JSON);
 }
 
 // select each button in the "Our Games" section
@@ -118,8 +143,9 @@ const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
 // add event listeners with the correct functions to each button
-
-
+unfundedBtn.addEventListener("click", filterUnfundedOnly);
+fundedBtn.addEventListener("click", filterFundedOnly);
+allBtn.addEventListener("click", showAllGames);
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
  * Skills used: template literals, ternary operator
