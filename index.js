@@ -80,6 +80,7 @@ const contributionsCard = document.getElementById("num-contributions");
 // use reduce() to count the number of total contributions by summing the backers
 const startVal = 0;
 let reducer = (accumulator, GAMES_JSON) => accumulator + GAMES_JSON.backers;
+
 let result = GAMES_JSON.reduce(reducer, startVal);
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
 contributionsCard.innerHTML = result.toLocaleString();
@@ -155,7 +156,25 @@ allBtn.addEventListener("click", showAllGames);
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+// reducer = (accumulator, GAMES_JSON) => accumulator + GAMES_JSON.pledged;
+// result = GAMES_JSON.reduce(reducer, startVal);
+// reducer = (accumulator, GAMES_JSON) => {
+//     GAMES_JSON.pledged < GAMES_JSON.goal ? accumulator + 1 : accumulator + 0;
+// };
+// const needsGoal = GAMES_JSON.filter((GAMES_JSON) => {
+//         return GAMES_JSON.pledged < GAMES_JSON.goal;
+//     });
+let unFundedArr = GAMES_JSON.filter((GAMES_JSON) => {
+    return GAMES_JSON.pledged < GAMES_JSON.goal;
+});
+// reducer = (accumulator, unFundedArr) => accumulator
+// const numUnfunded = GAMES_JSON.reduce(reducer, startVal);
+const numUnfunded = unFundedArr.reduce((
+    accumulator => accumulator += 1
+    ),
+    startVal
+);
+console.log(numUnfunded);
 
 // create a string that explains the number of unfunded games using the ternary operator
 
