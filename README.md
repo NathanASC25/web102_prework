@@ -35,7 +35,7 @@ GIF created with ...
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
-*** Video recording on Google Drive: [https://drive.google.com/file/d/1XaxxUEIRC14xYHJUURg2Xz9YQxnPjpFH/view?usp=sharing](url)
+*** Video recording on Google Drive: https://drive.google.com/file/d/1XaxxUEIRC14xYHJUURg2Xz9YQxnPjpFH/view?usp=sharing
 
 ## Notes
 
