@@ -51,13 +51,15 @@ function addGamesToPage(games) {
             <div>
                 <img class="game-img" src="${games[i].img}"> 
                 <br><br>
-                ${games[i].name}
-                <br><br>
-                ${games[i].description}
-                <br><br>
-                Pledged: ${games[i].pledged}
-                <br><br>
-                Goal: ${games[i].goal}
+                <div id="gameHighlight">
+                    ${games[i].name}
+                    <br><br>
+                    ${games[i].description}
+                    <br><br>
+                    Pledged: ${games[i].pledged}
+                    <br><br>
+                    Goal: ${games[i].goal}
+                </div>
             </div>
         `;
         gamesContainer.appendChild(newDiv);
@@ -202,6 +204,38 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 
 // use destructuring and the spread operator to grab the first and second games
 
+// retrieves a and c
+// function getABC(){
+//     return ["a", "b", "c"];
+// }
+
+// let [a, b, c] = getABC();
+// console.log(a, c);
+
+let [firstGame, secondGame, ...others] = sortedGames;
+
+
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 
+let firstGameP = document.createElement("p");
+firstGameP.innerHTML = firstGame.name;
+// styling
+firstGameP.style.fontWeight = "bold";
+firstGameP.style.backgroundImage = "linear-gradient(yellow, #FFD700)";
+firstGameP.style.border = "2px solid #FFD700";
+firstGameP.style.borderRadius = "10px";
+firstGameP.style.width = "40%";
+firstGameP.style.marginLeft = "30%";
+firstGameContainer.appendChild(firstGameP);
+
 // do the same for the runner up item
+
+let secondGameP = document.createElement("p");
+secondGameP.innerHTML = secondGame.name;
+secondGameP.style.fontWeight = "bold";
+secondGameP.style.backgroundImage = "linear-gradient(yellow, #FFD700)";
+secondGameP.style.border = "2px solid #FFD700";
+secondGameP.style.borderRadius = "10px";
+secondGameP.style.width = "45%";
+secondGameP.style.marginLeft = "28%";
+secondGameContainer.appendChild(secondGameP);

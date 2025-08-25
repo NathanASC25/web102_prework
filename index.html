@@ -14,27 +14,49 @@
     </div>
 
     <!-- background info about company -->
-    <h2>Welcome to Sea Monster!</h2>
+    <h2 class="subtitle">Welcome to Sea Monster!</h2>
     <div id="description-container">
         <p>The purpose of our company is to fund independent games. We've been in operation for 12 years.</p>
     </div>
+    <!-- Stats has switched places with the games and game nav bar -->
+
+    <!-- list of games funded by Sea Monster -->
+    <h2 class="subtitle">Our Games</h2>
+
+    <!-- Created new div element and id named gameRef to further organize the element structure -->
+
+    <div id="gameRef">
+        <p>Check out each of our games below! </p>
+        <p>We are proud of our current stats and greatly encourage further support from our patrons.</p>
+        <p>To check out our progress, please scroll down to the bottom of the page.</p>
+    </div>
+
+    <div id="button-container">
+        <button id="unfunded-btn">Show Unfunded Only</button>
+        <button id="funded-btn">Show Funded Only</button>
+        <button id="all-btn">Show All Games</button>
+    </div>
+    <div id="games-container">
+
+    </div>
 
     <!-- top games & other interesting stats -->
-    <h2>Stats</h2>
+
+    <h2 class="subtitle">Stats</h2>
     <div class="stats-container">
         <div class="stats-card">
             <h3>Individual Contributions</h3>
-            <p id="num-contributions">
+            <p class="stats" id="num-contributions">
             </p>
         </div>
         <div class="stats-card">
             <h3>Total Raised</h3>
-            <p id="total-raised">
+            <p class="stats" id="total-raised">
             </p>
         </div>
         <div class="stats-card">
             <h3>Total Number of Games</h3>
-            <p id="num-games">
+            <p class="stats" id="num-games">
             </p>
         </div>
     </div>
@@ -45,18 +67,6 @@
         <div class="stats-card" id="second-game">
             <h3>🥈 Runner Up</h3>
         </div>
-    </div>
-
-    <!-- list of games funded by Sea Monster -->
-    <h2>Our Games</h2>
-    <p>Check out each of our games below!</p>
-    <div id="button-container">
-        <button id="unfunded-btn">Show Unfunded Only</button>
-        <button id="funded-btn">Show Funded Only</button>
-        <button id="all-btn">Show All Games</button>
-    </div>
-    <div id="games-container">
-
     </div>
 
     <script type="module" src="index.js"></script>
