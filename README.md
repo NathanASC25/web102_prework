@@ -4,7 +4,7 @@ Submitted by: Nathan Chin
 
 **Sea Monster Games Database** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **X** hours spent in total
+Time spent: 10 hours spent in total
 
 ## Required Features
 
@@ -18,6 +18,8 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [ ] List anything else that you can get done to improve the app functionality!
+* [check] Reorganization of HTML
+* [check] CSS to emphasize important features through visibility and appeal.
 
 ## Video Walkthrough
 
@@ -26,19 +28,24 @@ Here's a walkthrough of implemented features:
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
+** Nathan Chin used Windows gamebar (windows key + G) to record the video walkthrough. **
 GIF created with ...  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
+*** Video recording on Google Drive: [https://drive.google.com/file/d/1XaxxUEIRC14xYHJUURg2Xz9YQxnPjpFH/view?usp=sharing](url)
+
 ## Notes
 
 Describe any challenges encountered while building the app.
 
+Javascript filter and reduce functions were new to me, so I took some time to read the documentation.
+
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [creative commons] [Nathan Chin]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
